@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Peta Kerusakan – LokasiBantu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <!-- Logo sama seperti halaman lain -->
+        <a href="index.html" class="logo">
+          <span class="logo-pin">📍</span>
+          <span class="logo-text">LokasiBantu</span>
+        </a>
+
+        <!-- Hamburger -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+          <span class="menu-line"></span>
+          <span class="menu-line"></span>
+          <span class="menu-line"></span>
+        </button>
+
+        <!-- Menu drop (hanya Tentang) -->
+        <nav>
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="tentang.html">Tentang Aplikasi</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="page-main">
+      <section class="page-section">
+        <div class="container" id="petaDetailPage">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb">
+            <a href="index.html">Beranda</a>
+            <span>/</span>
+            <span>Peta Kerusakan</span>
+          </nav>
+
+          <!-- Header -->
+          <header class="page-header">
+            <h1>Peta Kerusakan & Detail Laporan</h1>
+            <p>
+              Lihat persebaran laporan kerusakan fasilitas umum di kota Anda.
+              Pilih titik di peta atau pilih dari daftar untuk melihat detail
+              laporan, status penanganan, dan jadwal gotong royong.
+            </p>
+          </header>
+
+          <!-- LAYOUT PETA + LIST -->
+          <div class="peta-layout-app">
+            <!-- Panel Peta -->
+            <section class="peta-map-shell">
+              <div class="peta-map-header">
+             <div class="map-panel">
+  <div class="map-header">
+    <h2>Peta Kerusakan (Dummy)</h2>
+    <p>Setiap kotak mewakili area laporan. Klik salah satu untuk melihat detailnya.</p>
+  </div>
+
+  <div class="map-legend">
+    <span class="legend-item">
+      <span class="legend-dot legend-high"></span> Tinggi
+    </span>
+    <span class="legend-item">
+      <span class="legend-dot legend-medium"></span> Sedang
+    </span>
+    <span class="legend-item">
+      <span class="legend-dot legend-low"></span> Rendah
+    </span>
+  </div>
+
+  <!-- GRID AREA LAPORAN -->
+  <div class="map-grid">
+    <!-- Area 1 -->
+    <button class="map-cell urgensi-tinggi" type="button">
+      <span class="map-cell-badge">Tinggi</span>
+      <div class="map-cell-title">Koridor Jl. Melati</div>
+      <div class="map-cell-location">Jalan berlubang & genangan air</div>
+      <div class="map-cell-meta">3 laporan aktif • dekat SDN 01</div>
+    </button>
+
+    <!-- Area 2 -->
+    <button class="map-cell urgensi-sedang" type="button">
+      <span class="map-cell-badge">Sedang</span>
+      <div class="map-cell-title">Taman Kota Hijau</div>
+      <div class="map-cell-location">Lampu jalan mati di beberapa titik</div>
+      <div class="map-cell-meta">2 laporan aktif • area pejalan kaki</div>
+    </button>
+
+    <!-- Area 3 -->
+    <button class="map-cell urgensi-sedang" type="button">
+      <span class="map-cell-badge">Sedang</span>
+      <div class="map-cell-title">Gang Mawar 3</div>
+      <div class="map-cell-location">Sampah menumpuk di pojok gang</div>
+      <div class="map-cell-meta">1 laporan aktif • dekat pemukiman</div>
+    </button>
+
+    <!-- Area 4 -->
+    <button class="map-cell urgensi-tinggi" type="button">
+      <span class="map-cell-badge">Tinggi</span>
+      <div class="map-cell-title">Jl. Ahmad Yani</div>
+      <div class="map-cell-location">Drainase sering meluap saat hujan</div>
+      <div class="map-cell-meta">2 laporan aktif • akses utama kota</div>
+    </button>
+
+    <!-- Area 5 -->
+    <button class="map-cell urgensi-rendah" type="button">
+      <span class="map-cell-badge">Rendah</span>
+      <div class="map-cell-title">Depan Kampus Negeri</div>
+      <div class="map-cell-location">Trotoar retak, sudah dijadwalkan perbaikan</div>
+      <div class="map-cell-meta">1 laporan • status diproses</div>
+    </button>
+
+    <!-- Area 6 -->
+    <button class="map-cell urgensi-sedang" type="button">
+      <span class="map-cell-badge">Sedang</span>
+      <div class="map-cell-title">Taman Griya Asri</div>
+      <div class="map-cell-location">Ayunan rusak di area bermain anak</div>
+      <div class="map-cell-meta">1 laporan • butuh pengecekan</div>
+    </button>
+  </div>
+</div>
+
+              
+              <div class="peta-map-view" id="mapDummyGrid">
+                <!-- Diisi lewat JS dari dummyReports -->
+              </div>
+            </section>
+
+            <!-- Panel List -->
+            <section class="peta-list-shell">
+              <header class="peta-list-header">
+                <h2>Daftar Laporan</h2>
+                <p>Pakai filter untuk menyaring laporan di bawah ini.</p>
+              </header>
+
+              <!-- Filter -->
+              <div class="peta-filters">
+                <div class="peta-filter-group">
+                  <label for="filterKategori">Kategori</label>
+                  <select id="filterKategori">
+                    <option value="semua">Semua</option>
+                    <option value="jalan-berlubang">Jalan berlubang</option>
+                    <option value="lampu-jalan-mati">Lampu jalan mati</option>
+                    <option value="sampah-menumpuk">Sampah menumpuk</option>
+                    <option value="drainase-tersumbat">Drainase tersumbat</option>
+                    <option value="trotoar-rusak">Trotoar rusak</option>
+                  </select>
+                </div>
+                <div class="peta-filter-group">
+                  <label for="filterStatus">Status</label>
+                  <select id="filterStatus">
+                    <option value="semua">Semua</option>
+                    <option value="menunggu">Menunggu</option>
+                    <option value="diproses">Diproses</option>
+                    <option value="selesai">Selesai</option>
+                  </select>
+                </div>
+                <div class="peta-filter-group">
+                  <label for="filterUrgensi">Urgensi</label>
+                  <select id="filterUrgensi">
+                    <option value="semua">Semua</option>
+                    <option value="tinggi">Tinggi</option>
+                    <option value="sedang">Sedang</option>
+                    <option value="rendah">Rendah</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- List laporan (pakai ID lama agar nyambung dengan JS renderReports) -->
+              <div class="map-list" id="mapList"></div>
+            </section>
+          </div>
+
+          <!-- BOTTOM SHEET DETAIL -->
+          <section class="peta-detail-sheet" id="petaDetailSheet">
+            <div class="sheet-handle"></div>
+            <button class="sheet-close" id="sheetCloseBtn" aria-label="Tutup detail">
+              ✕
+            </button>
+
+            <div class="sheet-content">
+              <h2 class="sheet-title" id="sheetTitle">Judul laporan</h2>
+              <p class="sheet-meta" id="sheetMeta">
+                Lokasi • Status • Urgensi • Waktu
+              </p>
+
+              <div class="sheet-badges" id="sheetBadges">
+                <!-- badge status + kolaborasi -->
+              </div>
+
+              <p class="sheet-desc" id="sheetDesc">
+                Deskripsi laporan akan muncul di sini.
+              </p>
+
+              <!-- Info gotong royong (dummy sederhana, diisi dari JS communityReports kalau mau) -->
+              <div class="sheet-section" id="sheetGotong">
+                <h3>Gotong Royong</h3>
+                <p id="sheetGotongInfo">
+                  Jadwal gotong royong di lokasi ini akan muncul di sini.
+                </p>
+                <button class="btn btn-outline sheet-gotong-btn" id="sheetGotongBtn">
+                  Ikut Gotong Royong (Prototipe)
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <!-- BOTTOM NAV (Peta aktif) -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">🏠</span>
+        <span class="bottom-nav-label">Beranda</span>
+      </a>
+      <a href="lapor.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">➕</span>
+        <span class="bottom-nav-label">Lapor</span>
+      </a>
+      <a href="peta.html" class="bottom-nav-item active">
+        <span class="bottom-nav-icon">🗺️</span>
+        <span class="bottom-nav-label">Peta</span>
+      </a>
+      <a href="laporan-saya.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">📋</span>
+        <span class="bottom-nav-label">Laporan</span>
+      </a>
+      <a href="donasi.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">❤️</span>
+        <span class="bottom-nav-label">Donasi</span>
+      </a>
+    </nav>
+
+    <script src="menu.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

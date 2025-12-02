@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tentang Aplikasi – LokasiBantu</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <!-- Logo: tombol ke beranda -->
+      <a href="index.html" class="logo-link" aria-label="Kembali ke beranda">
+        <div class="app-logo-pill">
+          <span class="app-logo-dot"></span>
+          <span class="app-logo-text">LB</span>
+        </div>
+      </a>
+
+      <!-- Hamburger -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Buka menu"
+        aria-expanded="false"
+      >
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+
+      <!-- Flyout menu (hanya 1 item, karena ini prototipe) -->
+      <nav class="nav-flyout">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="tentang.html">Tentang Aplikasi</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- KONTEN UTAMA -->
+  <main class="page-main">
+    <section class="page-section">
+      <div class="container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Beranda</a>
+          <span>/</span>
+          <span>Tentang Aplikasi</span>
+        </nav>
+
+        <!-- Header halaman -->
+        <header class="page-header">
+          <h1>Tentang LokasiBantu</h1>
+          <p>
+            <em>LokasiBantu</em> adalah prototipe aplikasi laporan kerusakan
+            fasilitas umum dan koordinasi gotong royong warga. Aplikasi ini
+            membantu warga melaporkan masalah di lingkungan sekitar, memantau
+            status penanganan, dan terhubung dengan aksi bersama.
+          </p>
+        </header>
+
+        <!-- SECTION 1: Gambaran umum -->
+        <section class="about-section">
+          <div class="about-block">
+            <h2>Tujuan & Manfaat</h2>
+            <p class="about-intro">
+              LokasiBantu dirancang sebagai jembatan antara warga dengan
+              pemerintah/komunitas lokal dalam menangani kerusakan fasilitas
+              umum, sekaligus ruang kolaborasi untuk aksi sosial.
+            </p>
+            <ul>
+              <li>Mempermudah warga melaporkan kerusakan secara terstruktur.</li>
+              <li>Memusatkan informasi status laporan dalam satu aplikasi.</li>
+              <li>Mendukung budaya gotong royong dan partisipasi warga.</li>
+              <li>
+                Menyediakan kanal terpisah untuk donasi sosial (bencana, panti
+                asuhan, dll.) yang transparan.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SECTION 2: Fitur utama -->
+        <section class="about-section">
+          <div class="about-block">
+            <h2>Fitur Utama Aplikasi</h2>
+
+            <div class="about-grid">
+              <div class="about-card">
+                <h3>Lapor Kerusakan</h3>
+                <p>
+                  Warga dapat membuat laporan baru untuk kasus seperti jalan
+                  berlubang, lampu jalan mati, drainase tersumbat, dan fasilitas
+                  publik lain yang rusak. Formulir dilengkapi lokasi, kategori,
+                  tingkat urgensi, dan deskripsi.
+                </p>
+              </div>
+
+              <div class="about-card">
+                <h3>Laporan Saya</h3>
+                <p>
+                  Menampilkan riwayat laporan yang pernah dikirim, lengkap
+                  dengan status terbaru (menunggu verifikasi, sedang diproses,
+                  selesai diperbaiki). Halaman ini membantu warga memantau
+                  perkembangan perbaikan.
+                </p>
+              </div>
+
+              <div class="about-card">
+                <h3>Detail Laporan</h3>
+                <p>
+                  Setiap laporan memiliki halaman detail sendiri yang memuat
+                  lokasi, waktu, tingkat urgensi, deskripsi, dan timeline
+                  penanganan. Informasi peta tidak dibuat terpisah, tetapi
+                  dirangkum di dalam detail laporan.
+                </p>
+              </div>
+
+              <div class="about-card">
+                <h3>Gotong Royong</h3>
+                <p>
+                  Untuk kasus tertentu, warga dapat mendaftar ikut gotong
+                  royong. Jadwal, lokasi kumpul, dan catatan singkat dijelaskan
+                  langsung di bagian
+                  <em>Aksi Gotong Royong</em> pada halaman detail laporan.
+                </p>
+              </div>
+
+              <div class="about-card">
+                <h3>Donasi Sosial Terpisah</h3>
+                <p>
+                  Fitur donasi <strong>tidak</strong> digunakan untuk perbaikan
+                  fasilitas umum (karena diasumsikan ditangani oleh dana
+                  pemerintah). Donasi difokuskan untuk kampanye sosial seperti
+                  bencana alam, panti asuhan, program pendidikan, dan bantuan
+                  kesehatan di halaman <em>Donasi Sosial</em>.
+                </p>
+              </div>
+
+              <div class="about-card">
+                <h3>Desain ala Aplikasi</h3>
+                <p>
+                  Tampilan menggunakan gaya <em>Blue Tech Minimal</em> dengan
+                  navigasi bawah (bottom nav) mirip aplikasi mobile, sehingga
+                  prototipe terasa lebih mendekati aplikasi nyata dibanding
+                  sekadar halaman web statis.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 3: Alur penggunaan -->
+        <section class="about-section">
+          <div class="about-block">
+            <h2>Alur Penggunaan Singkat</h2>
+            <ul class="steps-list">
+              <li class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-body">
+                  <h3>Buka aplikasi & pilih menu</h3>
+                  <p>
+                    Pengguna membuka <em>LokasiBantu</em> lalu memilih menu di
+                    bottom navigation: <strong>Beranda</strong>,
+                    <strong>Lapor</strong>, <strong>Laporan</strong>,
+                    <strong>Detail</strong>, atau <strong>Donasi</strong>.
+                  </p>
+                </div>
+              </li>
+
+              <li class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-body">
+                  <h3>Buat laporan kerusakan</h3>
+                  <p>
+                    Di menu <strong>Lapor</strong>, pengguna mengisi formulir:
+                    lokasi, kategori kerusakan, tingkat urgensi, dan deskripsi.
+                    Laporan tersimpan sebagai data dummy dalam prototipe ini.
+                  </p>
+                </div>
+              </li>
+
+              <li class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-body">
+                  <h3>Lihat status & detail laporan</h3>
+                  <p>
+                    Melalui menu <strong>Laporan</strong> dan
+                    <strong>Detail</strong>, pengguna dapat melihat ringkasan
+                    semua laporan, lalu membuka satu laporan untuk melihat
+                    detail lengkap dan rencana gotong royong.
+                  </p>
+                </div>
+              </li>
+
+              <li class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-body">
+                  <h3>Dukung kampanye sosial</h3>
+                  <p>
+                    Bila ingin membantu di luar kerusakan fasilitas, pengguna
+                    dapat membuka menu <strong>Donasi</strong> untuk melihat
+                    kampanye sosial (bencana, panti asuhan, dsb.). Semua angka
+                    pada prototipe ini masih berupa contoh (dummy).
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SECTION 4: Batasan prototipe -->
+        <section class="about-section">
+          <div class="about-block about-highlight">
+            <strong>Catatan Prototipe:</strong>
+            <br />
+            Versi ini hanya contoh desain dan alur aplikasi. Data laporan,
+            jadwal gotong royong, dan kampanye donasi masih bersifat simulasi.
+            Pada implementasi asli, aplikasi perlu dihubungkan dengan sistem
+            autentikasi pengguna, basis data laporan, integrasi pembayaran
+            resmi, dan dashboard admin pemerintah/komunitas.
+          </div>
+        </section>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 LokasiBantu. Dibuat sebagai prototipe aplikasi sosial.</p>
+      <p class="footer-links">
+        <a href="tentang.html">Tentang</a> ·
+        <a href="#!">Kebijakan</a> ·
+        <a href="#!">Kontak</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- BOTTOM NAV (konsisten dengan halaman lain) -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <span class="bottom-nav-icon">🏠</span>
+      <span class="bottom-nav-label">Beranda</span>
+    </a>
+
+    <a href="lapor.html" class="bottom-nav-item">
+      <span class="bottom-nav-icon">➕</span>
+      <span class="bottom-nav-label">Lapor</span>
+    </a>
+
+    <a href="laporan-saya.html" class="bottom-nav-item">
+      <span class="bottom-nav-icon">📋</span>
+      <span class="bottom-nav-label">Laporan</span>
+    </a>
+
+    <a href="detail-laporan.html?id=lap1" class="bottom-nav-item">
+      <span class="bottom-nav-icon">📌</span>
+      <span class="bottom-nav-label">Detail</span>
+    </a>
+
+    <a href="donasi.html" class="bottom-nav-item">
+      <span class="bottom-nav-icon">❤️</span>
+      <span class="bottom-nav-label">Donasi</span>
+    </a>
+  </nav>
+
+  <!-- JS -->
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

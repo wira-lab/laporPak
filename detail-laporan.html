@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LokasiBantu - Detail Laporan</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+ <header class="site-header">
+  <div class="container nav-container">
+    <!-- Logo: jadi satu tombol yang link ke beranda -->
+    <a href="index.html" class="logo-link" aria-label="Kembali ke beranda">
+      <div class="app-logo-pill">
+        <span class="app-logo-dot"></span>
+        <span class="app-logo-text">LB</span>
+      </div>
+    </a>
+
+    <!-- Hamburger -->
+    <button
+      class="menu-toggle"
+      id="menuToggle"
+      aria-label="Buka menu"
+      aria-expanded="false"
+    >
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </button>
+
+    <!-- Menu dropdown (hanya Tentang) -->
+    <nav class="nav-flyout">
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="tentang.html">Tentang Aplikasi</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <!-- KONTEN UTAMA -->
+   <!-- KONTEN UTAMA -->
+  <main class="page-main" id="detailPage">
+    <section class="page-section">
+      <div class="container">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Beranda</a>
+          <span>/</span>
+          <a href="laporan-saya.html">Laporan Saya</a>
+          <span>/</span>
+          <span id="detailBreadcrumbTitle">Detail Laporan</span>
+        </nav>
+
+        <!-- Judul halaman -->
+        <header class="page-header">
+          <h1>Detail Laporan Kerusakan</h1>
+          <p>
+            Halaman ini menampilkan informasi lengkap mengenai kerusakan, status penanganan,
+            aksi gotong royong, serta penggalangan dana yang terkait dengan laporan ini.
+          </p>
+        </header>
+                <!-- Daftar beberapa laporan keluhan masyarakat -->
+        <section class="about-section">
+          <div class="about-block">
+            <h2>Daftar Laporan Keluhan Masyarakat</h2>
+            <p style="font-size:0.9rem;margin-bottom:8px;">
+              Pilih salah satu laporan di bawah ini untuk melihat detail, penggalangan dana,
+              dan rencana gotong royong yang terkait.
+            </p>
+            <div id="communityList" class="community-list">
+              <!-- Diisi via JavaScript dari communityReports -->
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Layout 2 kolom: detail + dana -->
+        <div class="detail-layout">
+          <!-- Kolom kiri: detail laporan -->
+          <section class="detail-main">
+            <article class="detail-card">
+              <h2 class="detail-title" id="detailJudul">Judul laporan</h2>
+
+              <div class="detail-meta" id="detailMeta">
+                <!-- Diisi via JS: lokasi, waktu, kategori, urgensi -->
+              </div>
+
+              <div class="detail-badges" id="detailBadges">
+                <!-- Diisi via JS: badge status + tipe penanganan -->
+              </div>
+
+              <div class="detail-body">
+                <p id="detailDeskripsi">
+                  Deskripsi laporan akan muncul di sini.
+                </p>
+              </div>
+
+              <!-- Dummy foto -->
+              <div class="detail-photo">
+                <div class="detail-photo-box">
+                  <p>Foto kerusakan (dummy)</p>
+                </div>
+                <p class="detail-photo-caption" id="detailFotoCaption">
+                  Ilustrasi area kerusakan.
+                </p>
+              </div>
+
+              <!-- Timeline status / progres -->
+              <section class="detail-timeline" aria-label="Timeline penanganan">
+                <h3>Timeline Penanganan</h3>
+                <ul id="detailTimelineList">
+                  <!-- Diisi via JS -->
+                </ul>
+              </section>
+            </article>
+          </section>
+
+          <!-- Kolom kanan: Penggalangan Dana + Gotong Royong -->
+          <aside class="detail-side" aria-label="Penggalangan Dana & Gotong Royong">
+          
+            <!-- Seksi singkat gotong royong -->
+            <section class="gotong-card">
+              <h3>Aksi Gotong Royong</h3>
+              <p id="gotongCatatan">
+                Informasi rencana gotong royong akan muncul di sini.
+              </p>
+              <ul id="gotongInfoList">
+                <!-- Diisi via JS -->
+              </ul>
+              <button type="button" class="btn btn-secondary">
+                Ikut Gotong Royong (Prototipe)
+              </button>
+            </section>
+          </aside>
+          
+        </div>
+        
+      </div>
+    </section>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 LokasiBantu. Dibuat sebagai prototipe aplikasi sosial.</p>
+      <p class="footer-links">
+        <a href="tentang.html">Tentang</a> ·
+        <a href="#!">Kebijakan</a> ·
+        <a href="#!">Kontak</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/main.js"></script>
+<nav class="bottom-nav">
+  <a href="index.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">🏠</span>
+    <span class="bottom-nav-label">Beranda</span>
+  </a>
+
+  <a href="lapor.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">➕</span>
+    <span class="bottom-nav-label">Lapor</span>
+  </a>
+
+  <!-- <a href="peta.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">🗺️</span>
+    <span class="bottom-nav-label">Peta</span>
+  </a> -->
+
+  <a href="laporan-saya.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">📋</span>
+    <span class="bottom-nav-label">Laporan</span>
+  </a>
+
+  <a href="detail-laporan.html?id=lap1" class="bottom-nav-item">
+    <span class="bottom-nav-icon">📌</span>
+    <span class="bottom-nav-label">Detail</span>
+  </a>
+
+  <a href="donasi.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">❤️</span>
+    <span class="bottom-nav-label">Donasi</span>
+  </a>
+</nav>
+
+
+
+</body>
+</html>

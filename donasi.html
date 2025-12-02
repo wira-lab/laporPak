@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="UTF-8" />
+  <title>LokasiBantu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="stylesheet" href="assets/css/style.css" />
+
+</head>
+
+  <body>
+    <!-- HEADER -->
+<header class="site-header">
+  <div class="container nav-container">
+    <!-- LOGO (SAMA DI SEMUA HALAMAN) -->
+     <a href="index.html" class="logo-link" aria-label="Kembali ke beranda">
+        <div class="app-logo-pill">
+          <span class="app-logo-dot"></span>
+          <span class="app-logo-text">LB</span>
+        </div>
+      </a>
+
+    <!-- HAMBURGER -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </button>
+
+    <!-- NAV DROPDOWN: hanya Tentang -->
+    <nav>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="tentang.html">Tentang Aplikasi</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+    <!-- MAIN -->
+    <main class="page-main">
+      <section class="page-section">
+        <div class="container">
+          <!-- Breadcrumb -->
+          <nav class="breadcrumb">
+            <a href="index.html">Beranda</a>
+            <span>/</span>
+            <span>Donasi Sosial</span>
+          </nav>
+
+          <!-- Header halaman donasi -->
+          <header class="donasi-header">
+            <h1>Donasi Sosial & Bantuan Warga</h1>
+            <p>
+              Kampanye di halaman ini difokuskan untuk bantuan sosial:
+              bencana alam, panti asuhan, pendidikan, dan kesehatan.
+              Dana tidak dipakai untuk perbaikan fasilitas umum,
+              tetapi disalurkan ke penerima manfaat yang jelas dan transparan.
+            </p>
+          </header>
+
+          <!-- Topbar: info + filter -->
+          <div class="donasi-topbar">
+            <div class="donasi-info">
+              <h2>Kampanye Aktif</h2>
+              <p>Pilih kategori untuk melihat kampanye yang relevan.</p>
+            </div>
+            <div class="donasi-filter">
+              <label for="donasiFilter">Filter kategori</label>
+              <select id="donasiFilter">
+                <option value="semua">Semua kampanye</option>
+                <option value="bencana">Bencana Alam</option>
+                <option value="panti">Panti Asuhan</option>
+                <option value="pendidikan">Pendidikan</option>
+                <option value="kesehatan">Kesehatan</option>
+                <option value="sosial">Sosial Umum</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Grid kampanye -->
+          <div class="donasi-grid" id="donasiList">
+
+            <!-- Card 1 -->
+            <article class="donasi-card" data-kategori="bencana">
+              <div class="donasi-thumb">Foto Kampanye</div>
+
+              <div class="donasi-badge badge-bencana">Bencana Alam</div>
+
+              <h3 class="donasi-title">Bantu Korban Banjir Bandung</h3>
+              <p class="donasi-desc">
+                Penyediaan makanan siap saji, selimut, dan obat-obatan
+                dasar untuk keluarga terdampak banjir.
+              </p>
+
+              <div class="donasi-stats">
+                <div class="donasi-target">Terkumpul</div>
+                <div class="donasi-nominal">
+                  Rp 23.500.000 dari Rp 40.000.000
+                </div>
+              </div>
+
+              <div class="donasi-progress-track">
+                <div class="donasi-progress-fill" style="width: 58%"></div>
+              </div>
+
+              <div class="donasi-progress-meta">
+                <span>58% tercapai</span>
+                <span>7 hari lagi</span>
+              </div>
+
+              <button class="donasi-button">Donasi Sekarang</button>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="donasi-card" data-kategori="panti">
+              <div class="donasi-thumb">Foto Kampanye</div>
+
+              <div class="donasi-badge badge-panti">Panti Asuhan</div>
+
+              <h3 class="donasi-title">
+                Renovasi Panti Asuhan Cahaya
+              </h3>
+              <p class="donasi-desc">
+                Renovasi kamar tidur, pengecatan, dan kasur baru
+                untuk 32 anak asuh.
+              </p>
+
+              <div class="donasi-stats">
+                <div class="donasi-target">Terkumpul</div>
+                <div class="donasi-nominal">
+                  Rp 12.000.000 dari Rp 25.000.000
+                </div>
+              </div>
+
+              <div class="donasi-progress-track">
+                <div class="donasi-progress-fill" style="width: 48%"></div>
+              </div>
+
+              <div class="donasi-progress-meta">
+                <span>48% tercapai</span>
+                <span>12 hari lagi</span>
+              </div>
+
+              <button class="donasi-button">Donasi Sekarang</button>
+            </article>
+
+          </div>
+
+          <!-- Catatan prototipe -->
+          <p class="donasi-note">
+            Catatan: Ini masih prototipe. Data jumlah dana, donatur, dan
+            hari tersisa adalah contoh. Pada versi penuh, kampanye akan
+            terhubung ke sistem pembayaran resmi dan laporan penyaluran.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">🏠</span>
+        <span class="bottom-nav-label">Beranda</span>
+      </a>
+
+      <a href="lapor.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">➕</span>
+        <span class="bottom-nav-label">Lapor</span>
+      </a>
+
+      <!-- <a href="peta.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">🗺️</span>
+        <span class="bottom-nav-label">Peta</span>
+      </a> -->
+
+      <a href="laporan-saya.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">📋</span>
+        <span class="bottom-nav-label">Laporan</span>
+      </a>
+
+      <a href="detail-laporan.html?id=lap1" class="bottom-nav-item">
+        <span class="bottom-nav-icon">📌</span>
+        <span class="bottom-nav-label">Detail</span>
+      </a>
+
+      <a href="donasi.html" class="bottom-nav-item active">
+        <span class="bottom-nav-icon">❤️</span>
+        <span class="bottom-nav-label">Donasi</span>
+      </a>
+    </nav>
+
+    <script src="script.js"></script>
+
+    
+<script src="menu.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
+

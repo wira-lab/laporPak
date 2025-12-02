@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LokasiBantu - Beranda</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <!-- HEADER / NAVBAR -->
+ <header class="site-header">
+  <div class="container nav-container">
+    <!-- Logo saja di kiri -->
+  <a href="index.html" class="logo-link" aria-label="Kembali ke beranda">
+        <div class="app-logo-pill">
+          <span class="app-logo-dot"></span>
+          <span class="app-logo-text">LB</span>
+        </div>
+      </a>
+
+    <!-- Tombol hamburger di kanan -->
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+      <span class="menu-line"></span>
+    </button>
+
+    <!-- Menu mobile: isi hanya "Tentang" -->
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="tentang.html">Tentang Aplikasi</a></li>
+    </ul>
+  </div>
+</header>
+
+
+  <!-- KONTEN UTAMA -->
+  <main>
+    <!-- SECTION HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h1>Laporkan Fasilitas Umum Rusak, Bantu Kota Jadi Lebih Baik.</h1>
+          <p>
+            Dengan <strong>LokasiBantu</strong>, warga bisa melaporkan lampu jalan mati,
+            jalan berlubang, sampah menumpuk, dan drainase tersumbat hanya dalam
+            beberapa klik. Laporan terdokumentasi, transparan, dan mudah dipantau.
+          </p>
+
+          <div class="hero-actions">
+            <a href="lapor.html" class="btn btn-primary" id="btnOpenDemo">
+           Buat Laporan Sekarang
+            </a>
+
+            <a href="detail-laporan.html" class="btn btn-outline">
+            Lihat Laporan Kerusakan
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span>✅ Terbuka untuk semua warga</span>
+            <span>📊 Laporan tercatat & transparan</span>
+          </div>
+        </div>
+
+        <div class="hero-illustration">
+          <!-- Sementara pakai box dummy, nanti bisa diganti gambar -->
+          <div class="hero-card">
+            <p class="hero-card-title">Contoh Laporan</p>
+            <p class="hero-card-text">
+              “Jalan berlubang cukup besar di Jl. Melati, dekat sekolah. Berbahaya
+              untuk pengendara motor.”
+            </p>
+            <p class="hero-card-status">Status: Menunggu verifikasi</p>
+          </div>
+
+          <div class="hero-card small">
+            <p class="hero-card-title">Statistik Singkat</p>
+            <ul>
+              <li>📍 24 laporan hari ini</li>
+              <li>✅ 56 fasilitas diperbaiki bulan ini</li>
+              <li>👥 120 warga aktif melapor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 LokasiBantu. Dibuat sebagai prototipe aplikasi sosial.</p>
+      <p class="footer-links">
+        <a href="tentang.html">Tentang</a> ·
+        <a href="#!">Kebijakan</a> ·
+        <a href="#!">Kontak</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/menu.js"></script>
+  <script src="assets/js/main.js"></script>
+<nav class="bottom-nav">
+  <a href="index.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">🏠</span>
+    <span class="bottom-nav-label">Beranda</span>
+  </a>
+
+  <a href="lapor.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">➕</span>
+    <span class="bottom-nav-label">Lapor</span>
+  </a>
+
+  <!-- <a href="peta.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">🗺️</span>
+    <span class="bottom-nav-label">Peta</span>
+  </a> -->
+
+  <a href="laporan-saya.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">📋</span>
+    <span class="bottom-nav-label">Laporan</span>
+  </a>
+
+  <a href="detail-laporan.html?id=lap1" class="bottom-nav-item">
+    <span class="bottom-nav-icon">📌</span>
+    <span class="bottom-nav-label">Detail</span>
+  </a>
+
+  <a href="donasi.html" class="bottom-nav-item">
+    <span class="bottom-nav-icon">❤️</span>
+    <span class="bottom-nav-label">Donasi</span>
+  </a>
+</nav>
+<!-- MODAL DEMO APP -->
+<div class="app-modal-backdrop" id="demoModal">
+  <div class="app-modal">
+    <button class="app-modal-close" data-modal-close>&times;</button>
+    <h2 class="app-modal-title">Simulasi Kirim Laporan</h2>
+    <p class="app-modal-text">
+      Di versi aplikasi penuh, setelah klik <strong>Buat Laporan Sekarang</strong>,
+      pengguna akan diarahkan ke form dengan GPS otomatis, upload foto, dan status
+      pelacakan laporan.
+    </p>
+    <div class="app-modal-actions">
+      <a href="lapor.html" class="btn btn-primary">Pergi ke Form Lapor</a>
+      <button class="btn btn-outline" data-modal-close>Batal</button>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
