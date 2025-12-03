@@ -3,222 +3,151 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LokasiBantu - Buat Laporan</title>
+  <title>LaporPak - Laporan Saya</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <!-- HEADER / NAVBAR -->
- <header class="site-header">
-  <div class="container nav-container">
-    <!-- Logo saja di kiri -->
-  <a href="index.html" class="logo-link" aria-label="Kembali ke beranda">
-        <div class="app-logo-pill">
-          <span class="app-logo-dot"></span>
-          <span class="app-logo-text">LB</span>
+  <!-- FRAME APLIKASI -->
+  <div class="app-shell">
+    <div class="app-shell-inner">
+
+      <!-- HEADER -->
+      <header class="site-header">
+        <div class="container nav-container">
+          <!-- Logo -->
+          <a href="index.html" class="logo-link" aria-label="Kembali ke beranda">
+            <div class="app-logo-pill">
+              <span class="app-logo-dot"></span>
+              <span class="app-logo-text">LP</span>
+            </div>
+          </a>
+
+          <!-- Hamburger -->
+          <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+            <span class="menu-line"></span>
+          </button>
+
+          <!-- Menu dropdown -->
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="tentang.html">Tentang Aplikasi</a></li>
+          </ul>
         </div>
-      </a>
+      </header>
 
-    <!-- Tombol hamburger di kanan -->
-    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-      <span class="menu-line"></span>
-    </button>
+      <!-- KONTEN UTAMA -->
+      <main class="page-main">
+        <section class="page-section">
+          <div class="container">
 
-    <!-- Menu mobile: isi hanya "Tentang" -->
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="tentang.html">Tentang Aplikasi</a></li>
-    </ul>
-  </div>
-</header>
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="index.html">Beranda</a>
+              <span>/</span>
+              <span>Laporan Saya</span>
+            </nav>
 
+            <!-- Judul + intro -->
+            <header class="page-header">
+              <h1>Laporan Saya</h1>
+              <p>
+                Berikut adalah daftar laporan kerusakan fasilitas umum yang pernah Anda kirim.
+                Pantau status dan perkembangan penanganannya di halaman ini.
+              </p>
+            </header>
 
-  <!-- KONTEN UTAMA -->
-  <main class="page-main">
-    <section class="page-section">
-      <div class="container">
-
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Beranda</a>
-          <span>/</span>
-          <span>Buat Laporan</span>
-        </nav>
-
-        <!-- Judul halaman -->
-        <header class="page-header">
-          <h1>Buat Laporan Kerusakan Fasilitas Umum</h1>
-          <p>
-            Isi formulir di bawah ini dengan jelas dan jujur. Laporan Anda akan membantu
-            pemerintah dan warga lain untuk memperbaiki lingkungan bersama.
-          </p>
-        </header>
-
-        <!-- Layout: Form + Tips -->
-        <div class="report-layout">
-          <!-- Kolom Form -->
-          <section class="form-card" aria-label="Form Laporan Kerusakan">
-            <form class="report-form" id="reportForm">
-              <!-- Upload foto -->
-              <div class="form-group">
-                <label for="foto">Foto kerusakan <span class="required">*</span></label>
-                <p class="form-hint">Unggah foto yang jelas dari kerusakan (maksimal 3 foto pada versi penuh).</p>
-                <input type="file" id="foto" name="foto" accept="image/*" />
-              </div>
-
-              <!-- Lokasi -->
-              <div class="form-group">
-                <label for="lokasi">Lokasi kerusakan <span class="required">*</span></label>
-                <div class="location-row">
-                  <input
-                    type="text"
-                    id="lokasi"
-                    name="lokasi"
-                    placeholder="Contoh: Jl. Melati No. 12, dekat SDN 01"
-                  />
-                  <button type="button" class="btn btn-secondary" id="btnLokasi">
-                    Deteksi Lokasi
-                  </button>
-                </div>
-                <p class="form-hint">
-                  Tulis alamat selengkap mungkin. Pada versi produksi, tombol "Deteksi Lokasi"
-                  bisa menggunakan GPS (geolocation).
+            <!-- RINGKASAN + FILTER -->
+            <div class="myreports-topbar">
+              <div class="myreports-summary">
+                <h2>Ringkasan singkat</h2>
+                <p class="myreports-summary-text">
+                  Laporan dengan status
+                  <span class="badge badge-wait">Menunggu verifikasi</span>,
+                  <span class="badge badge-process">Sedang diproses</span>, dan
+                  <span class="badge badge-done">Selesai diperbaiki</span>
+                  akan muncul di sini.
                 </p>
               </div>
 
-              <!-- Kategori & Urgensi -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="kategori">Kategori kerusakan <span class="required">*</span></label>
-                  <select id="kategori" name="kategori">
-                    <option value="">Pilih kategori</option>
-                    <option value="jalan-berlubang">Jalan berlubang</option>
-                    <option value="lampu-jalan-mati">Lampu jalan mati</option>
-                    <option value="sampah-menumpuk">Sampah menumpuk</option>
-                    <option value="drainase-tersumbat">Drainase tersumbat</option>
-                    <option value="trotoar-rusak">Trotoar / trotoar rusak</option>
-                    <option value="taman-fasilitas">Fasilitas taman / publik rusak</option>
-                    <option value="lainnya">Lainnya</option>
-                  </select>
+              <div class="myreports-filter">
+                <label for="filterStatus">Filter status</label>
+                <select id="filterStatus">
+                  <option value="semua">Semua laporan</option>
+                  <option value="menunggu">Menunggu verifikasi</option>
+                  <option value="proses">Sedang diproses</option>
+                  <option value="selesai">Selesai diperbaiki</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- LIST LAPORAN SAYA -->
+            <section class="myreports-list" id="myReportList">
+              <!-- contoh dummy yang sudah rapi -->
+              <article class="myreport-card" data-status="menunggu">
+                <div class="myreport-header">
+                  <h3 class="myreport-title">Lainnya - Lokasi tidak diisi</h3>
+                  <span class="badge badge-wait myreport-badge">Menunggu verifikasi</span>
                 </div>
-
-                <div class="form-group">
-                  <label for="urgensi">Tingkat urgensi <span class="required">*</span></label>
-                  <select id="urgensi" name="urgensi">
-                    <option value="">Pilih urgensi</option>
-                    <option value="rendah">Rendah (tidak darurat)</option>
-                    <option value="sedang">Sedang</option>
-                    <option value="tinggi">Tinggi (membahayakan pengguna jalan)</option>
-                  </select>
+                <div class="myreport-meta">
+                  Lokasi tidak diisi · Baru saja · Urgensi: sedang<br/>
+                  Kategori: Lainnya
                 </div>
-              </div>
+                <p class="myreport-desc">
+                  Tanpa deskripsi. Ini laporan yang Anda kirim.
+                </p>
+                <div class="myreport-footer">
+                  <div class="myreport-note-small">Ini laporan yang Anda kirim.</div>
+                  <div class="myreport-actions">
+                    <a href="detail-laporan.html?id=lap1" class="btn btn-outline btn-sm">
+                      Lihat detail
+                    </a>
+                  </div>
+                </div>
+              </article>
 
-              <!-- Deskripsi -->
-              <div class="form-group">
-                <label for="deskripsi">Deskripsi singkat <span class="required">*</span></label>
-                <textarea
-                  id="deskripsi"
-                  name="deskripsi"
-                  rows="5"
-                  placeholder="Contoh: Jalan berlubang cukup dalam dan sering membuat pengendara motor hampir jatuh, tepat di depan minimarket X."
-                ></textarea>
-              </div>
+              <!-- Tambah laporan dummy lain seperti biasa -->
+              <!-- ... -->
+            </section>
 
-              <!-- Info opsional -->
-              <div class="form-group">
-                <label for="patokan">Patokan / titik referensi (opsional)</label>
-                <input
-                  type="text"
-                  id="patokan"
-                  name="patokan"
-                  placeholder="Contoh: Di depan Masjid Al-Ikhlas, dekat halte bus."
-                />
-              </div>
-
-              <!-- Tombol -->
-              <div class="form-actions">
-                <button type="submit" class="btn btn-primary">Kirim Laporan</button>
-                <a href="index.html" class="btn btn-outline">Batal</a>
-              </div>
-
-              <p class="form-note">
-                Dengan mengirim laporan, Anda setuju bahwa data ini akan digunakan untuk keperluan
-                pemantauan dan perbaikan fasilitas umum.
-              </p>
-            </form>
-          </section>
-
-          <!-- Kolom Tips -->
-          <aside class="report-tips" aria-label="Tips Laporan Yang Baik">
-            <h2>Tips Laporan yang Baik</h2>
-            <ul>
-              <li>Ambil foto di siang hari agar kerusakan terlihat jelas.</li>
-              <li>Sertakan patokan lokasi yang mudah dikenali (sekolah, masjid, minimarket, dll.).</li>
-              <li>Pilih kategori dan tingkat urgensi yang paling sesuai.</li>
-              <li>Gunakan bahasa yang sopan dan fokus pada masalah.</li>
-            </ul>
-
-            <h3>Kenapa laporan Anda penting?</h3>
-            <p>
-              Laporan yang lengkap dan jelas akan membantu dinas terkait memprioritaskan perbaikan,
-              sehingga dampaknya bisa langsung dirasakan oleh banyak orang.
+            <p class="myreports-note">
+              Catatan: Ini adalah prototipe. Pada versi produksi, data laporan akan diambil dari server
+              berdasarkan akun pengguna yang sedang login.
             </p>
 
-            <div class="tips-highlight">
-              <p><strong>Catatan prototipe:</strong> Saat ini, tombol "Kirim Laporan" hanya simulasi untuk keperluan demo dan presentasi.</p>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-  </main>
+          </div>
+        </section>
+      </main>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2025 LokasiBantu. Dibuat sebagai prototipe aplikasi sosial.</p>
-      <p class="footer-links">
-        <a href="tentang.html">Tentang</a> ·
-        <a href="#!">Kebijakan</a> ·
-        <a href="#!">Kontak</a>
-      </p>
-    </div>
-  </footer>
+    </div> <!-- /app-shell-inner -->
 
+    <!-- BOTTOM NAV DALAM app-shell -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">🏠</span>
+        <span class="bottom-nav-label">Beranda</span>
+      </a>
+      <a href="lapor.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">➕</span>
+        <span class="bottom-nav-label">Lapor</span>
+      </a>
+      <a href="laporan-saya.html" class="bottom-nav-item active">
+        <span class="bottom-nav-icon">📋</span>
+        <span class="bottom-nav-label">Laporan Saya</span>
+      </a>
+      <a href="detail-laporan.html?id=lap1" class="bottom-nav-item">
+        <span class="bottom-nav-icon">📌</span>
+        <span class="bottom-nav-label">Detail</span>
+      </a>
+      <a href="donasi.html" class="bottom-nav-item">
+        <span class="bottom-nav-icon">❤️</span>
+        <span class="bottom-nav-label">Donasi</span>
+      </a>
+    </nav>
+  </div> <!-- /app-shell -->
+
+  <!-- SCRIPT -->
   <script src="assets/js/menu.js"></script>
   <script src="assets/js/main.js"></script>
-<nav class="bottom-nav">
-  <a href="index.html" class="bottom-nav-item">
-    <span class="bottom-nav-icon">🏠</span>
-    <span class="bottom-nav-label">Beranda</span>
-  </a>
-
-  <a href="lapor.html" class="bottom-nav-item">
-    <span class="bottom-nav-icon">➕</span>
-    <span class="bottom-nav-label">Lapor</span>
-  </a>
-
-  <!-- <a href="peta.html" class="bottom-nav-item">
-    <span class="bottom-nav-icon">🗺️</span>
-    <span class="bottom-nav-label">Peta</span>
-  </a> -->
-
-  <a href="laporan-saya.html" class="bottom-nav-item">
-    <span class="bottom-nav-icon">📋</span>
-    <span class="bottom-nav-label">Laporan</span>
-  </a>
-
-  <a href="detail-laporan.html?id=lap1" class="bottom-nav-item">
-    <span class="bottom-nav-icon">📌</span>
-    <span class="bottom-nav-label">Detail</span>
-  </a>
-
-  <a href="donasi.html" class="bottom-nav-item">
-    <span class="bottom-nav-icon">❤️</span>
-    <span class="bottom-nav-label">Donasi</span>
-  </a>
-</nav>
-
-
 </body>
 </html>

@@ -1,17 +1,34 @@
 /* ==========================================
    RESET & BASE
 ========================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden; /* cegah geser kiri-kanan */
+html {
+  width: 100%;
+  overflow-x: hidden;  /* cegah geser kiri-kanan */
 }
+
+/* Ukuran app seperti HP (±430px) di desktop */
+body {
+  max-width: 430px;      /* lebar "layar aplikasi" */
+  margin: 0 auto;        /* di-tengah secara horizontal */
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background:
+    radial-gradient(120% 160% at 0% 0%, rgba(59, 130, 246, 0.35), transparent 45%),
+    radial-gradient(140% 180% at 100% 0%, rgba(139, 92, 246, 0.4), transparent 55%),
+    #020617;
+  color: #e5e7eb;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
 
 :root {
   --bg-body: #0b1220;           /* dark tech background */
@@ -187,6 +204,8 @@ a {
   list-style: none;
   display: none;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+    z-index: 120; /* ← tambahkan ini */
+
 }
 
 .nav-menu.is-open {
@@ -218,7 +237,7 @@ a {
 
 
 /* HAMBURGER (mobile) */
-.menu-toggle {
+/* .menu-toggle {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -231,7 +250,7 @@ a {
   background: radial-gradient(circle at 30% 0, #1e293b, #020617 70%);
   cursor: pointer;
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.85);
-}
+} */
 
 .menu-toggle:hover {
   border-color: rgba(248, 250, 252, 0.8);
@@ -575,6 +594,32 @@ a {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 6px;
+}
+
+/* Perapihan khusus layout form lapor */
+.report-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-top: 6px;
+}
+
+/* Biar kartu form & tips fleksibel dan tidak kepotong */
+.form-card,
+.report-tips {
+  min-width: 0;
+}
+
+/* Di layar kecil, tumpuk ke bawah supaya tidak sempit */
+@media (max-width: 900px) {
+  .report-layout {
+    flex-direction: column;
+  }
+
+  .form-card,
+  .report-tips {
+    width: 100%;
+  }
 }
 
 /* ==========================================
@@ -2641,4 +2686,198 @@ body {
 .community-item-urgency.urgensi-rendah {
   border-color: #22c55e;
   color: #bbf7d0;
+}
+
+/* ===== Modal Donasi ===== */
+.donasi-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.donasi-modal.hidden {
+  display: none;
+}
+
+.donasi-modal-content {
+  width: 90%;
+  max-width: 420px;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(148,163,184,0.3);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.45);
+}
+
+.donasi-modal-content h3 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.donasi-modal-content label {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+}
+
+.donasi-modal-content input,
+.donasi-modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 12px;
+  background: rgba(30,41,59,0.8);
+  border: 1px solid rgba(148,163,184,0.3);
+  border-radius: 10px;
+  color: #e2e8f0;
+}
+
+.btn-submit-donasi {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.btn-submit-donasi:hover {
+  background: #2563eb;
+}
+
+.btn-close-donasi {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(148,163,184,0.2);
+  color: #cbd5e1;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+/* 
+.app-shell {
+  width: 100%;
+  max-width: 480px;   /* lebar “hp” */
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #020617, #000);
+  position: relative;
+}
+
+.app-shell-inner {
+  padding-bottom: 72px; /* ruang untuk bottom nav */
+}
+
+
+:root {
+  /* lebar "layar HP" saat dibuka di desktop */
+  --app-width: 430px;
+}
+
+/* ===== KHUSUS LAYAR LEBAR (DESKTOP) ===== */
+@media (min-width: 900px) {
+  body {
+    background: #020617;            /* background gelap di luar app */
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Semua bagian utama dibatasi lebar app & di-center */
+  .site-header,
+  .page-main,
+  .site-footer,
+  .bottom-nav {
+    max-width: var(--app-width);
+    margin-inline: auto;
+  }
+
+
+
+  /* Header: ditempel di atas, tapi lebarnya cuma selebar app */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--app-width);
+    border-radius: 0 0 16px 16px;   /* opsional: sudut agak bulat */
+    overflow: visible;
+  }
+
+  /* Konten utama: kasih jarak supaya tidak ketutup header & bottom nav */
+  .page-main {
+    padding-top: 80px;   /* ruang untuk header */
+    padding-bottom: 96px;/* ruang untuk bottom nav */
+  }
+
+  /* Bottom nav: ditempel di bawah, selebar app, bukan full monitor */
+  .bottom-nav {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: var(--app-width);
+    border-radius: 18px 18px 0 0;   /* biar kayak frame app */
+    box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.6);
+  }
+} */
+
+/* Konten utama: kasih jarak dari header */
+.page-main {
+  padding-bottom: calc(var(--bottom-nav-height) + 18px);
+}
+
+/* Khusus desktop – header fixed, jadi butuh padding-top */
+@media (min-width: 900px) {
+  .page-main {
+    padding-top: 96px;   /* bisa 90–100px, intinya hero tidak ketimpa */
+  }
+}
+/* =========================================
+   PERBAIKAN JEDA HEADER DI BERANDA (DESKTOP)
+========================================= *//* =========================================
+   FIX DONASI GRID AGAR TETAP 1 KOLOM
+   ========================================= */
+.donasi-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;   /* selalu satu kolom penuh */
+}
+
+/* Override media query sebelumnya yang bikin 2–3 kolom */
+@media (min-width: 600px) {
+  .donasi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .donasi-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero {
+    margin-top: calc(var(--nav-height) + 16px);
+    /* nav-height = 64px, jadi total kira2 80px */
+  }
+}
+
+/* Jarak antar card donasi */
+.donasi-card:not(:first-child) {
+  margin-top: 24px !important;   /* jarak card ke-2, ke-3, dst dari card di atasnya */
 }

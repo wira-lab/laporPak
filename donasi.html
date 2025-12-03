@@ -2,13 +2,15 @@
 <html lang="id">
  <head>
   <meta charset="UTF-8" />
-  <title>LokasiBantu</title>
+  <title>Lapor Pak</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <link rel="stylesheet" href="assets/css/style.css" />
 
 </head>
 
   <body>
+      <div class="app-shell">
+    <div class="app-shell-inner">
     <!-- HEADER -->
 <header class="site-header">
   <div class="container nav-container">
@@ -16,7 +18,7 @@
      <a href="index.html" class="logo-link" aria-label="Kembali ke beranda">
         <div class="app-logo-pill">
           <span class="app-logo-dot"></span>
-          <span class="app-logo-text">LB</span>
+          <span class="app-logo-text">LP</span>
         </div>
       </a>
 
@@ -83,70 +85,100 @@
           <div class="donasi-grid" id="donasiList">
 
             <!-- Card 1 -->
-            <article class="donasi-card" data-kategori="bencana">
-              <div class="donasi-thumb">Foto Kampanye</div>
+           <article
+  class="donasi-card"
+  data-kategori="bencana"
+  data-terkumpul="23500000"
+  data-target="40000000"
+>
+  <div class="donasi-thumb">Foto Kampanye</div>
 
-              <div class="donasi-badge badge-bencana">Bencana Alam</div>
+  <div class="donasi-badge badge-bencana">Bencana Alam</div>
 
-              <h3 class="donasi-title">Bantu Korban Banjir Bandung</h3>
-              <p class="donasi-desc">
-                Penyediaan makanan siap saji, selimut, dan obat-obatan
-                dasar untuk keluarga terdampak banjir.
-              </p>
+  <h3 class="donasi-title">Bantu Korban Banjir Bandung</h3>
+  <p class="donasi-desc">
+    Penyediaan makanan siap saji, selimut, dan obat-obatan
+    dasar untuk keluarga terdampak banjir.
+  </p>
 
-              <div class="donasi-stats">
-                <div class="donasi-target">Terkumpul</div>
-                <div class="donasi-nominal">
-                  Rp 23.500.000 dari Rp 40.000.000
-                </div>
-              </div>
+  <div class="donasi-stats">
+    <div class="donasi-target">Terkumpul</div>
+    <div class="donasi-nominal">
+      Rp 23.500.000 dari Rp 40.000.000
+    </div>
+  </div>
 
-              <div class="donasi-progress-track">
-                <div class="donasi-progress-fill" style="width: 58%"></div>
-              </div>
+  <div class="donasi-progress-track">
+    <div class="donasi-progress-fill" style="width: 58%"></div>
+  </div>
 
-              <div class="donasi-progress-meta">
-                <span>58% tercapai</span>
-                <span>7 hari lagi</span>
-              </div>
+  <div class="donasi-progress-meta">
+    <span>58% tercapai</span>
+    <span>7 hari lagi</span>
+  </div>
 
-              <button class="donasi-button">Donasi Sekarang</button>
-            </article>
+  <button class="donasi-button">Donasi Sekarang</button>
+<!-- Card 2 -->
+<article
+  class="donasi-card"
+  data-kategori="panti"
+  data-terkumpul="12000000"
+  data-target="25000000"
+>
+  <div class="donasi-thumb">Foto Kampanye</div>
 
-            <!-- Card 2 -->
-            <article class="donasi-card" data-kategori="panti">
-              <div class="donasi-thumb">Foto Kampanye</div>
+  <div class="donasi-badge badge-panti">Panti Asuhan</div>
 
-              <div class="donasi-badge badge-panti">Panti Asuhan</div>
+  <h3 class="donasi-title">
+    Renovasi Panti Asuhan Cahaya
+  </h3>
+  <p class="donasi-desc">
+    Renovasi kamar tidur, pengecatan, dan kasur baru
+    untuk 32 anak asuh.
+  </p>
 
-              <h3 class="donasi-title">
-                Renovasi Panti Asuhan Cahaya
-              </h3>
-              <p class="donasi-desc">
-                Renovasi kamar tidur, pengecatan, dan kasur baru
-                untuk 32 anak asuh.
-              </p>
+  <div class="donasi-stats">
+    <div class="donasi-target">Terkumpul</div>
+    <div class="donasi-nominal">
+      Rp 12.000.000 dari Rp 25.000.000
+    </div>
+  </div>
 
-              <div class="donasi-stats">
-                <div class="donasi-target">Terkumpul</div>
-                <div class="donasi-nominal">
-                  Rp 12.000.000 dari Rp 25.000.000
-                </div>
-              </div>
+  <div class="donasi-progress-track">
+    <div class="donasi-progress-fill" style="width: 48%"></div>
+  </div>
 
-              <div class="donasi-progress-track">
-                <div class="donasi-progress-fill" style="width: 48%"></div>
-              </div>
+  <div class="donasi-progress-meta">
+    <span>48% tercapai</span>
+    <span>12 hari lagi</span>
+  </div>
 
-              <div class="donasi-progress-meta">
-                <span>48% tercapai</span>
-                <span>12 hari lagi</span>
-              </div>
+  <button class="donasi-button">Donasi Sekarang</button>
+</article>
 
-              <button class="donasi-button">Donasi Sekarang</button>
-            </article>
 
           </div>
+
+          <!-- FORM DONASI (MODAL) -->
+<div id="donasiModal" class="donasi-modal hidden">
+  <div class="donasi-modal-content">
+    <h3>Form Donasi</h3>
+
+    <label>Nama</label>
+    <input type="text" id="donasiNama" placeholder="Nama Anda">
+
+    <label>Nominal Donasi</label>
+    <input type="number" id="donasiNominal" placeholder="Contoh: 50000">
+
+    <label>Pesan (Opsional)</label>
+    <textarea id="donasiPesan" placeholder="Tuliskan pesan..."></textarea>
+
+    <button class="btn-submit-donasi" id="btnSubmitDonasi">Kirim Donasi</button>
+
+    <button class="btn-close-donasi" id="btnCloseDonasi">Batal</button>
+  </div>
+</div>
+
 
           <!-- Catatan prototipe -->
           <p class="donasi-note">
@@ -190,12 +222,8 @@
         <span class="bottom-nav-label">Donasi</span>
       </a>
     </nav>
-
-    <script src="script.js"></script>
-
-    
-<script src="menu.js"></script>
-<script src="main.js"></script>
-</body>
+   <script src="assets/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>
 

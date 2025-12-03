@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // =====================================================
   // HALAMAN LAPOR (lapor.html) – form buat laporan user
-  // =====================================================
+  // ================================================MODAL DONASI=====
   const btnLokasi = document.getElementById("btnLokasi");
   const lokasiInput = document.getElementById("lokasi");
   const reportForm = document.getElementById("reportForm");
@@ -1362,3 +1362,227 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// =========================
+// MODAL DONASI (donasi.html)
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("donasiModal");
+  if (!modal) return; // bukan di halaman donasi
+
+  const btnClose = document.getElementById("btnCloseDonasi");
+  const btnSubmit = document.getElementById("btnSubmitDonasi");
+  const inputNama = document.getElementById("donasiNama");
+  const inputNominal = document.getElementById("donasiNominal");
+  const inputPesan = document.getElementById("donasiPesan");
+  const modalTitle = modal.querySelector("h3");
+
+  const donasiButtons = document.querySelectorAll(".donasi-button");
+
+  // untuk menyimpan card kampanye yang sedang dipilih
+  let activeCampaignCard = null;
+
+  function formatRupiah(number) {
+    return "Rp " + Number(number).toLocaleString("id-ID");
+  }
+
+  function openModal(titleKampanye, cardEl) {
+    activeCampaignCard = cardEl || null;
+
+    if (modalTitle && titleKampanye) {
+      modalTitle.textContent = "Donasi untuk " + titleKampanye;
+    }
+
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  // klik tombol "Donasi Sekarang" => buka modal
+  donasiButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".donasi-card");
+      const titleEl = card?.querySelector(".donasi-title");
+      const titleText = titleEl ? titleEl.textContent.trim() : "";
+
+      openModal(titleText, card);
+    });
+  });
+
+  // tombol Batal / close
+  if (btnClose) {
+    btnClose.addEventListener("click", closeModal);
+  }
+
+  // tombol Kirim Donasi (dummy)
+  if (btnSubmit) {
+    btnSubmit.addEventListener("click", () => {
+      if (!activeCampaignCard) {
+        alert("Terjadi kesalahan: kampanye tidak ditemukan.");
+        return;
+      }
+
+      const nama = inputNama.value.trim();
+      const nominalStr = inputNominal.value.trim();
+      const nominal = parseInt(nominalStr, 10);
+
+      if (!nama || !nominalStr) {
+        alert("Nama dan nominal donasi harus diisi dulu ya.");
+        return;
+      }
+
+      if (isNaN(nominal) || nominal <= 0) {
+        alert("Nominal donasi harus angka lebih dari 0.");
+        return;
+      }
+
+      // Ambil data lama dari atribut data-*
+      let current = parseInt(activeCampaignCard.dataset.terkumpul, 10);
+      const target = parseInt(activeCampaignCard.dataset.target, 10);
+
+      if (isNaN(current)) current = 0;
+
+      // Tambahkan donasi baru
+      current += nominal;
+      activeCampaignCard.dataset.terkumpul = current;
+
+      // Hitung persentase
+      const percent = Math.min(100, Math.round((current / target) * 100));
+
+      // Update teks "Terkumpul"
+      const nominalEl = activeCampaignCard.querySelector(".donasi-nominal");
+      if (nominalEl) {
+        nominalEl.textContent =
+          `${formatRupiah(current)} dari ${formatRupiah(target)}`;
+      }
+
+      // Update progress bar
+      const barFill = activeCampaignCard.querySelector(
+        ".donasi-progress-fill"
+      );
+      if (barFill) {
+        barFill.style.width = percent + "%";
+      }
+
+      // Update "xx% tercapai"
+      const metaEl = activeCampaignCard.querySelector(
+        ".donasi-progress-meta span:first-child"
+      );
+      if (metaEl) {
+        metaEl.textContent = `${percent}% tercapai`;
+      }
+
+      // Dummy feedback
+      alert(
+        `Terima kasih, ${nama}!\nDonasi sebesar ${formatRupiah(
+          nominal
+        )} sudah tercatat (dummy).`
+      );
+
+      // Reset form
+      inputNama.value = "";
+      inputNominal.value = "";
+      inputPesan.value = "";
+
+      closeModal();
+    });
+  }
+
+  // Tutup modal kalau klik area gelap
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("donasiModal");
+  const btnSubmit = document.getElementById("btnSubmitDonasi");
+  const btnClose = document.getElementById("btnCloseDonasi");
+  const inputNama = document.getElementById("donasiNama");
+  const inputNominal = document.getElementById("donasiNominal");
+  const inputPesan = document.getElementById("donasiPesan");
+
+  // kalau bukan di halaman donasi, jangan jalanin apa-apa
+  if (!modal) return;
+
+  let activeCard = null;
+
+  function formatRupiah(num) {
+    return num.toLocaleString("id-ID");
+  }
+
+  // buka modal saat tombol "Donasi Sekarang" diklik
+  document.querySelectorAll(".donasi-button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activeCard = btn.closest(".donasi-card");
+      if (!activeCard) return;
+      modal.classList.remove("hidden");
+    });
+  });
+
+  // tutup modal
+  btnClose.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    inputNama.value = "";
+    inputNominal.value = "";
+    inputPesan.value = "";
+  });
+
+  // submit donasi
+  btnSubmit.addEventListener("click", () => {
+    if (!activeCard) return;
+
+    const nominal = parseInt(inputNominal.value, 10);
+    if (isNaN(nominal) || nominal <= 0) {
+      alert("Masukkan nominal donasi yang valid.");
+      return;
+    }
+
+    let current = parseInt(activeCard.dataset.terkumpul || "0", 10);
+    const target = parseInt(activeCard.dataset.target || "0", 10);
+
+    if (!target || isNaN(target)) {
+      alert("Data target donasi tidak valid di kartu ini.");
+      return;
+    }
+
+    current += nominal;
+    activeCard.dataset.terkumpul = current.toString();
+
+    const percent = Math.min(100, Math.round((current / target) * 100));
+
+    // update tulisan "Rp xxx dari Rp yyy"
+    const nominalEl = activeCard.querySelector(".donasi-nominal");
+    if (nominalEl) {
+      nominalEl.textContent =
+        `Rp ${formatRupiah(current)} dari Rp ${formatRupiah(target)}`;
+    }
+
+    // update progress bar
+    const barFill = activeCard.querySelector(".donasi-progress-fill");
+    if (barFill) {
+      barFill.style.width = `${percent}%`;
+    }
+
+    // update "xx% tercapai"
+    const metaPercentEl =
+      activeCard.querySelector(".donasi-progress-meta span:first-child");
+    if (metaPercentEl) {
+      metaPercentEl.textContent = `${percent}% tercapai`;
+    }
+
+    // (opsional) kasih notifikasi sederhana
+    alert("Terima kasih, donasi Anda tercatat sebagai data dummy 😊");
+
+    // reset & tutup modal
+    inputNama.value = "";
+    inputNominal.value = "";
+    inputPesan.value = "";
+    modal.classList.add("hidden");
+  });
+});
+
